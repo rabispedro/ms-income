@@ -1,0 +1,14 @@
+services:
+  worker-db:
+    image: postgres:15.2-alpine3.17
+    container_name: worker-db
+    restart: always
+    mem_limit: 512mb
+    environment:
+      - POSTGRES_DB=worker-db
+      - POSTGRES_PASSWORD=W0rK3rP4$$w0rD
+      - POSTGRES_USER=WorkerAdmin
+    ports:
+      - 5440:5432
+    volumes:
+      - ./volumes/worker/db:/var/lib/postgresql/data
