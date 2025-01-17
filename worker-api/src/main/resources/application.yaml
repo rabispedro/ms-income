@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: worker-api
+
+  config:
+    name: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5440/worker_db
+    username: worker_admin
+    password: W0RK3R_P4SSW0RD
+
+  jpa:
+    properties:
+      hibernate:
+        format-sql: true
+        jdbc:
+          dialect: org.hibernate.dialect.PosgtreSQLDialect
+
+  profiles:
+    active:
+    - dev
+    default: dev
+
+server:
+  port: 8840
+  error:
+    include-stacktrace: never
+    include-message: always
+    whitelabel:
+      enabled: false
