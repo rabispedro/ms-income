@@ -5,9 +5,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class WorkerApplicationTests {
-
 	@Test
 	void contextLoads() {
+		WorkerApplication.main(new String[] {});
 	}
-
 }
