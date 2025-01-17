@@ -5,9 +5,9 @@ services:
     restart: always
     mem_limit: 512mb
     environment:
-      - POSTGRES_DB=worker-db
-      - POSTGRES_PASSWORD=W0rK3rP4$$w0rD
-      - POSTGRES_USER=WorkerAdmin
+      POSTGRES_DB: worker_db
+      POSTGRES_PASSWORD: W0RK3R_P4SSW0RD
+      POSTGRES_USER: worker_admin
     ports:
       - 5440:5432
     volumes:
