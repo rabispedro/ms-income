@@ -1,11 +1,11 @@
-package com.brcme.worker.worker;
+package com.brcme.payroll.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WorkerApplication {
+public class PayrollApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(WorkerApplication.class, args);
+		SpringApplication.run(PayrollApplication.class, args);
 	}
 }

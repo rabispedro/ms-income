@@ -1,4 +1,4 @@
-package com.brcme.worker.worker.services;
+package com.brcme.worker.api.services;
 
 import java.util.UUID;
 
@@ -6,9 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.brcme.worker.worker.dtos.worker.WorkerResponseDto;
-import com.brcme.worker.worker.entities.Worker;
-import com.brcme.worker.worker.repositories.WorkerRepository;
+import com.brcme.worker.api.dtos.worker.WorkerResponseDto;
+import com.brcme.worker.api.entities.Worker;
+import com.brcme.worker.api.repositories.WorkerRepository;
 
 import lombok.RequiredArgsConstructor;
 

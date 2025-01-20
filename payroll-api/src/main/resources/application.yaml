@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: payroll-api
+
+  config:
+    name: dev
+
+  profiles:
+    active:
+    - dev
+    default: dev
+
+server:
+  port: 8845
+  error:
+    include-stacktrace: never
+    include-message: always
+    whitelabel:
+      enabled: false
+
+worker-api:
+  host: http://localhost:8840

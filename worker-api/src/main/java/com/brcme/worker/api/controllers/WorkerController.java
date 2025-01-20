@@ -1,10 +1,10 @@
-package com.brcme.worker.worker.controllers;
+package com.brcme.worker.api.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brcme.worker.worker.dtos.worker.WorkerResponseDto;
-import com.brcme.worker.worker.services.WorkerService;
+import com.brcme.worker.api.dtos.worker.WorkerResponseDto;
+import com.brcme.worker.api.services.WorkerService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class WorkerController {
 	private final WorkerService workerService;
 
-	@GetMapping("")
+	@GetMapping
 	public ResponseEntity<Page<WorkerResponseDto>> getAll(Pageable page) {
 		return ResponseEntity.ok(workerService.getAll(page));
 	}

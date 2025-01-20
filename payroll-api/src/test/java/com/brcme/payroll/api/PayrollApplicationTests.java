@@ -1,12 +1,12 @@
-package com.brcme.worker.worker;
+package com.brcme.payroll.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WorkerApplicationTests {
+class PayrollApplicationTests {
 	@Test
 	void contextLoads() {
-		WorkerApplication.main(new String[] {});
+		PayrollApplication.main(new String[] {});
 	}
 }
