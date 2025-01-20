@@ -17,6 +17,3 @@ server:
     include-message: always
     whitelabel:
       enabled: false
-
-worker-api:
-  host: http://localhost:8840
