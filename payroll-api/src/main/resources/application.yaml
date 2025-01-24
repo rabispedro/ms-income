@@ -2,6 +2,11 @@ spring:
   application:
     name: payroll-api
 
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: true
+
   config:
     name: dev
 
@@ -11,9 +16,16 @@ spring:
     default: dev
 
 server:
-  port: 8845
+  port: 8850
   error:
     include-stacktrace: never
     include-message: always
     whitelabel:
       enabled: false
+
+worker-api:
+  ribbon:
+    eureka:
+      enabled: true
+    listOfServers: localhost:8840,localhost:8841
+    ServerListRefreshInterval: 15000

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.brcme.payroll.api.entities.Worker;
 
-@FeignClient(name = "worker-api", url = "localhost:8840", path = "/workers")
+@FeignClient(name = "worker-api", path = "/workers")
 @Component
 public interface WorkerRepository {
 	@GetMapping
