@@ -1,4 +1,4 @@
-package com.brcme.worker.api.dtos.worker;
+package com.brcme.worker.app.dtos.responses;
 
 import java.math.BigInteger;
 import java.util.UUID;

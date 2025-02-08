@@ -1,4 +1,4 @@
-package com.brcme.worker.api;
+package com.brcme.worker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

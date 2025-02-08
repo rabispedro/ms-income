@@ -1,4 +1,4 @@
-package com.brcme.worker.api.entities;
+package com.brcme.worker.core.entities;
 
 import java.io.Serializable;
 import java.math.BigInteger;
