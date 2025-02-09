@@ -1,4 +1,4 @@
-package com.brcme.eurekaserver.eureka_server;
+package com.brcme.dicoveryserver.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
