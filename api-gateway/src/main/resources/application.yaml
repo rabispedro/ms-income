@@ -2,14 +2,32 @@ spring:
   application:
     name: api-gateway
   
-  #cloud:
-    #gateway:
-      #mvc:
-        #routes:
-        #- id: worker-api:**
-          #uri: lb://worker-api
-          #predicates:
-          #- Path=/worker-api/**
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      httpclient:
+        connect-timeout: 20000
+        pool:
+          max-connections: 200
+          metrics: true
+
+      metrics:
+        enabled: true
+
+      routes:
+      - id: worker-api
+        uri: lb://worker-api
+        predicates:
+        - Path=/worker-api/**
+
+      - id: payroll-api
+        uri: lb://payroll-api
+        predicates:
+        - Path=/payroll-api/**
 
 eureka:
   client:
@@ -17,6 +35,16 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   #instance:
     #hostname: localhost
+
+management:
+  endpoint:
+    gateway:
+      access: read-only
+  endpoints:
+    web:
+      exposure:
+        include:
+        - 'gateway'
 
 server:
   port: 8765
