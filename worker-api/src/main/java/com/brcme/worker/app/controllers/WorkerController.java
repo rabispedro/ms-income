@@ -13,6 +13,7 @@ import lombok.extern.log4j.Log4j2;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class WorkerController {
 	private final WorkerServicePort workerService;
 
+	@Value("${eureka.instance.instance-id}")
+	private String eurekaInstanceId;
+
 	@GetMapping
 	public ResponseEntity<List<WorkerResponseDto>> getAll() {
 		return ResponseEntity.ok(workerService.getAll());
@@ -34,5 +38,11 @@ public class WorkerController {
 		@Parameter(name = "id") @PathVariable("id") UUID id) {
 
 		return ResponseEntity.ok(workerService.getById(id));
+	}
+
+	@GetMapping("/config")
+	public ResponseEntity<Void> getConfig() {
+		log.info("Eureka Instance Id: {}", eurekaInstanceId);
+		return ResponseEntity.noContent().build();
 	}
 }

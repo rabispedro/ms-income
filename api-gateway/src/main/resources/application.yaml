@@ -10,7 +10,7 @@ spring:
           lower-case-service-id: true
 
       httpclient:
-        connect-timeout: 20000
+        connect-timeout: 12000
         pool:
           max-connections: 200
           metrics: true
