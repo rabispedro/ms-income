@@ -29,6 +29,11 @@ spring:
         predicates:
         - Path=/payroll-api/**
 
+      - id: user-api
+        uri: lb://user-api
+        predicates:
+        - Path=/user-api/**
+
 eureka:
   client:
     service-url:
