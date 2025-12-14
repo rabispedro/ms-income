@@ -1,4 +1,4 @@
-INSERT INTO "Role"("name")
+INSERT INTO "role"("name")
 VALUES
 	('ROLE_ADMINISTRATOR'),
 	('ROLE_SOFTWARE_ENGINEER'),

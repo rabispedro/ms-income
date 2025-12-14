@@ -38,6 +38,11 @@ spring:
         uri: lb://oauth
         predicates:
         - Path=/oauth/**
+        filters:
+        - Cookie
+        - SetCookie
+#        - Cookie
+#        - SetCookie
 
 eureka:
   client:

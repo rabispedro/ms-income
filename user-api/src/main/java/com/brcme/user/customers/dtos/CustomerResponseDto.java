@@ -7,4 +7,5 @@ public record CustomerResponseDto(
 	UUID id,
 	String name,
 	String email,
+	String password,
 	Set<String> roles) {}

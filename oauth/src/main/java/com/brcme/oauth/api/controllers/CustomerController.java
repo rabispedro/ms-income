@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.brcme.oauth.api.dtos.CustomerResponseDto;
 import com.brcme.oauth.api.services.CustomerService;
 
-import lombok.RequiredArgsConstructor;
-
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
 	private final CustomerService customerService;
+
+	public CustomerController(CustomerService customerService) {
+		this.customerService = customerService;
+	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<CustomerResponseDto> getById(

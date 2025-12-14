@@ -18,5 +18,5 @@ public interface CustomerRepository {
 	ResponseEntity<CustomerResponseDto> getById(@PathVariable("id") UUID id);
 
 	@GetMapping("/search")
-	public ResponseEntity<CustomerResponseDto> getByEmail(@RequestParam("email") String email);
+	ResponseEntity<CustomerResponseDto> getByEmail(@RequestParam("email") String email);
 }

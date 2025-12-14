@@ -43,7 +43,7 @@ public class Customer implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "Customer_Role",
-		joinColumns = @JoinColumn(name = "user_id"),
+		joinColumns = @JoinColumn(name = "customer_id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 }

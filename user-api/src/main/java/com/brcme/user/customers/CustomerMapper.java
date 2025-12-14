@@ -38,6 +38,7 @@ public class CustomerMapper {
 			customer.getId(),
 			customer.getName(),
 			customer.getEmail(),
+			customer.getPassword(),
 			customer.getRoles().stream().map(Role::getName).collect(Collectors.toSet()));
 	}
 }

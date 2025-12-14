@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.brcme.user.customers.dtos.CreateCustomerRequestDto;
 import com.brcme.user.customers.dtos.CustomerResponseDto;
 import com.brcme.user.customers.usecases.ICreateCustomerUseCase;
+import com.brcme.user.customers.usecases.IFindAllCustomers;
 import com.brcme.user.customers.usecases.IFindCustomerByEmailUseCase;
 import com.brcme.user.customers.usecases.IFindCustomerById;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,7 @@ public class CustomerController {
 	private final ICreateCustomerUseCase createCustomerUseCase;
 	private final IFindCustomerByEmailUseCase findCustomerByEmailUseCase;
 	private final IFindCustomerById findCustomerById;
+	private final IFindAllCustomers findAllCustomers;
 
 	@GetMapping("/{id}")
 	public ResponseEntity<CustomerResponseDto> getById(
@@ -35,6 +38,12 @@ public class CustomerController {
 
 		return ResponseEntity.ok(findCustomerById.execute(id));
 	}
+
+	@GetMapping
+	public ResponseEntity<List<CustomerResponseDto>> getAll() {
+		return ResponseEntity.ok(findAllCustomers.execute());
+	}
+	
 	
 	@PostMapping
 	public ResponseEntity<Void> createCustomer(

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "Customer_Role" (
-	"user_id" UUID NOT NULL REFERENCES "Customer"("id"),
-	"role_id" UUID NOT NULL REFERENCES "Role"("id")
+CREATE TABLE IF NOT EXISTS "customer_role" (
+	"customer_id" UUID NOT NULL REFERENCES "customer"("id"),
+	"role_id" UUID NOT NULL REFERENCES "role"("id")
 );

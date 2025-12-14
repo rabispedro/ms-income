@@ -11,7 +11,7 @@ public class BCryptConfig {
 	Integer encoderStrength;
 	
 	@Bean
-	BCryptPasswordEncoder passwordEncoder() {
+	BCryptPasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder(encoderStrength);
 	}
 }
