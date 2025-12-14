@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: user-api
+
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev
+
+  config:
+    import:
+    - optional:configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:postgresql://localhost:5441/user_db
+    username: user_admin
+    password: US3R_P4SSW0RD
+
+  jpa:
+    properties:
+      hibernate:
+        format-sql: true
+        jdbc:
+          dialect: org.hibernate.dialect.PosgtreSQLDialect
+
+  profiles:
+    active:
+    - dev
+    default: dev
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
+
+server:
+  port: ${PORT:0}
+  error:
+    include-stacktrace: never
+    include-message: always
+    whitelabel:
+      enabled: false
+
+encoder:
+  strength: 13

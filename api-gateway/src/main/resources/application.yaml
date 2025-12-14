@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: api-gateway
+  
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      httpclient:
+        connect-timeout: 12000
+        pool:
+          max-connections: 200
+          metrics: true
+
+      metrics:
+        enabled: true
+
+      routes:
+      - id: worker-api
+        uri: lb://worker-api
+        predicates:
+        - Path=/worker-api/**
+
+      - id: payroll-api
+        uri: lb://payroll-api
+        predicates:
+        - Path=/payroll-api/**
+
+      - id: user-api
+        uri: lb://user-api
+        predicates:
+        - Path=/user-api/**
+
+      - id: oauth
+        uri: lb://oauth
+        predicates:
+        - Path=/oauth/**
+        filters:
+        - Cookie
+        - SetCookie
+#        - Cookie
+#        - SetCookie
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  #instance:
+    #hostname: localhost
+
+management:
+  endpoint:
+    gateway:
+      access: read-only
+  endpoints:
+    web:
+      exposure:
+        include:
+        - 'gateway'
+
+server:
+  port: 8765
+  error:
+    include-stacktrace: never
+    include-message: always
+    whitelabel:
+      enabled: false

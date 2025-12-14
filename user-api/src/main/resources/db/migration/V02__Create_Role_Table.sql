@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS "role" (
+	"id" UUID DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY,
+	"name" VARCHAR(255) NOT NULL UNIQUE
+);

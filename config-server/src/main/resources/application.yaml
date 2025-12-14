@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/rabispedro/ms-income-config
+
+server:
+  port: 8888

@@ -12,3 +12,16 @@ services:
       - 5440:5432
     volumes:
       - ./volumes/worker/db:/var/lib/postgresql/data
+  user-db:
+      image: postgres:15.2-alpine3.17
+      container_name: user-db
+      restart: always
+      mem_limit: 512mb
+      environment:
+        POSTGRES_DB: user_db
+        POSTGRES_PASSWORD: US3R_P4SSW0RD
+        POSTGRES_USER: user_admin
+      ports:
+        - 5441:5432
+      volumes:
+        - ./volumes/user/db:/var/lib/postgresql/data

@@ -2,8 +2,14 @@ spring:
   application:
     name: worker-api
 
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev
+
   config:
-    name: dev
+    import:
+    - configserver:http://localhost:8888
 
   datasource:
     url: jdbc:postgresql://localhost:5440/worker_db
@@ -22,8 +28,22 @@ spring:
     - dev
     default: dev
 
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
+
 server:
-  port: 8840
+  port: ${PORT:0}
   error:
     include-stacktrace: never
     include-message: always
